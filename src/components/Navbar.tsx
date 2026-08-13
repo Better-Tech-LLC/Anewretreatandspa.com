@@ -102,7 +102,7 @@ export default function Navbar() {
               </div>
             )}
 
-            <div className="flex items-center gap-2 xl:gap-3">
+            <div className="flex items-center gap-2 xl:gap-3 mr-4">
               <Link
                 href="/booking"
                 className={`text-[11px] tracking-[0.25em] uppercase font-light border px-4 xl:px-5 py-2.5 transition-all duration-300 ${
