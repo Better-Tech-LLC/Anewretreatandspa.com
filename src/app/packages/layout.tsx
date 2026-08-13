@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Packages & Pricing | ANEW",
+  title: "Wedding & Celebration Packages | ANEW",
   description:
-    "View packages and pricing for weddings, retreats, and private events at ANEW. Flexible options tailored to your celebration.",
+    "Wedding and celebration packages at ANEW Retreat & Spa, a private estate in Kenmore, Washington. From wedding-day venue rental to an all-inclusive estate weekend.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

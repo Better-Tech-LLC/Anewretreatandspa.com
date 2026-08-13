@@ -9,87 +9,93 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const packages = [
   {
-    name: "Elopement",
-    price: "$5,500",
-    capacity: "Up to 15 guests",
-    duration: "1 night",
-    includes: ["Ceremony lawn access", "Basic setup (arch + chairs)", "1-hour venue prep", "Parking", "Overnight stay"],
-    best: "Intimate elopements & micro-weddings",
-    details: "The perfect package for couples who want a meaningful ceremony in nature. Includes the most scenic spots on the property and one night's stay.",
+    name: "The Celebration",
+    price: "From $8,000",
+    tagline: "Wedding day venue rental",
+    duration: "Wedding day",
+    includes: [
+      "Private use of designated ceremony and reception spaces",
+      "Access to indoor and outdoor celebration areas",
+      "Use of the estate for your wedding-day timeline",
+      "Getting-ready space",
+      "Flexibility to bring in approved outside vendors",
+      "On-site venue contact for property access and logistics",
+    ],
+    best: "Couples who want the ANEW setting while arranging their own accommodations, catering, and vendor team",
+    details:
+      "Celebrate in one beautiful place with flexible indoor and outdoor spaces and the full estate as the backdrop for your wedding-day timeline.",
   },
   {
-    name: "Gathering",
-    price: "$5,500",
-    capacity: "Up to 40 guests",
-    duration: "1 night",
-    includes: ["Indoor or outdoor space", "Tables & chairs", "Basic lighting", "2-hour setup", "Parking", "Overnight stay"],
-    best: "Birthday parties, small gatherings",
-    details: "An approachable package for smaller celebrations. Choose between the Grand Hall or Courtyard. Includes one night's stay.",
+    name: "The Estate Weekend",
+    price: "From $21,000",
+    tagline: "Wedding celebration + two-night stay",
+    duration: "Two nights",
+    includes: [
+      "Everything included in The Celebration",
+      "Two-night private estate stay",
+      "Extended access for rehearsal, setup, wedding day, and post-wedding time",
+      "A relaxed home-base experience for the couple and overnight guests",
+      "More time to enjoy the property beyond the wedding itself",
+      "Ideal for destination-style and full-weekend celebrations",
+    ],
+    best: "Couples who want the wedding and overnight experience together without choosing a fully inclusive package",
+    details:
+      "Build a wedding weekend around your vision — arrive early for rehearsal and setup, celebrate, and stay on to unwind with your closest guests.",
   },
   {
-    name: "Corporate",
-    price: "$5,500",
-    capacity: "Up to 50 guests",
-    duration: "1 night",
-    includes: ["Grand Hall + breakout spaces", "AV equipment", "High-speed Wi-Fi", "Coffee & tea all day", "Courtyard access", "Overnight stay"],
-    best: "Team retreats, strategy sessions",
-    details: "Break out of the office and into nature. The property's calm setting fosters creativity and connection. Includes one night's stay.",
-  },
-  {
-    name: "Signature",
-    price: "$6,000",
-    capacity: "Up to 75 guests",
-    duration: "2 nights",
+    name: "The ANEW Signature Weekend",
+    price: "From $45,000",
+    tagline: "Elevated all-inclusive wedding weekend",
+    duration: "Two nights",
     featured: true,
-    includes: ["Full venue access", "Catering kitchen", "Fire pit lounge", "String lights", "Bridal suite", "Event coordinator", "Tables, chairs & linens", "2-night stay"],
-    best: "Weddings, milestone celebrations",
-    details: "Our most popular package. From ceremony to reception, every space is yours. A dedicated coordinator ensures every detail is handled. Includes two nights.",
-  },
-  {
-    name: "Weekend Retreat",
-    price: "$9,000",
-    capacity: "Up to 75 guests",
-    duration: "Full weekend (3 nights)",
-    includes: ["Everything in Signature", "7 bedrooms (all 3 nights)", "Private chef — all meals", "Guided nature walk", "Welcome reception", "Farewell brunch", "Full cleanup"],
-    best: "Destination weddings, multi-day celebrations",
-    details: "The ultimate ANEW experience. Guests arrive Friday, celebrate all weekend, and gather for farewell brunch Sunday. Three nights at $5,500/night.",
-  },
-  {
-    name: "Custom",
-    price: "Let's Talk",
-    capacity: "Up to 75 guests",
-    duration: "Any duration",
-    includes: ["Fully customizable", "Mix & match spaces", "Custom catering", "Personalized add-ons", "Dedicated planning"],
-    best: "Unique celebrations",
-    details: "Have something specific in mind? Tell us your vision and we'll build a custom proposal. Base rate is $5,500/night.",
+    includes: [
+      "Two-night private estate stay",
+      "Wedding ceremony and reception venue rental",
+      "Customized food experience with the resident chef",
+      "Tables, chairs, and event rentals based on selected design",
+      "Wedding-day coordination and timeline support",
+      "Setup and cleanup support",
+      "Customized planning around guest count, menu, bar, and event flow",
+    ],
+    best: "Couples who want one streamlined experience with accommodations, celebration space, food, and event support coordinated together",
+    details:
+      "Our most elevated experience. Accommodations, celebration spaces, resident-chef dining, and event support — coordinated together as one seamless weekend.",
   },
 ];
 
-const addOns = [
-  { name: "Catering", price: "$45/person" },
-  { name: "Photography", price: "$800" },
-  { name: "DJ / Music", price: "$600" },
-  { name: "Floral & Decor", price: "$1,200" },
-  { name: "Fire Pit Evening", price: "$300" },
-  { name: "Ceremony Setup", price: "$500" },
-  { name: "Nature Walk", price: "$200" },
-  { name: "Extended Hours", price: "$400/hr" },
-  { name: "Cleanup", price: "$350" },
-  { name: "Shuttle", price: "$250" },
-  { name: "Overnight Rooms", price: "$150/room" },
+const enhancements = [
+  "Additional overnight accommodations / extra nights",
+  "Resident-chef catering and custom menus",
+  "Bar service",
+  "Wedding planning or expanded coordination",
+  "Tables, chairs, linens, and specialty event rentals",
+  "Setup and cleanup",
+  "Rehearsal dinner, welcome gathering, or farewell brunch",
+  "Shuttle / transportation coordination",
 ];
 
 const pricingFaqs = [
-  { q: "How does payment work?", a: "Bookings are paid in full at checkout to secure your date. Reservations require a minimum of 3 days advance notice." },
-  { q: "Cancellation policy?", a: "All bookings are non-refundable once payment has been processed. Date changes may be accommodated based on availability." },
-  { q: "Can packages be customized?", a: "Every package is a starting point. We're happy to adjust features to match your vision." },
-  { q: "What's not included?", a: "Catering, photography, florals, and entertainment are available as add-ons or through your own vendors." },
-  { q: "Payment methods?", a: "Credit cards, bank transfers, and checks. Payment plans available for events 6+ months out." },
+  {
+    q: "How do I reserve my date?",
+    a: "Packages are customized based on event date, guest count, spaces used, accommodations, food and beverage, and selected services. A signed agreement and retainer are required to reserve your date.",
+  },
+  {
+    q: "Can packages be customized?",
+    a: "Every package is a starting point. We're happy to adjust spaces, accommodations, and services to match your vision.",
+  },
+  {
+    q: "Can I bring my own vendors?",
+    a: "Yes — The Celebration and The Estate Weekend offer the flexibility to bring in approved outside vendors for catering, photography, florals, and entertainment.",
+  },
+  {
+    q: "What enhancements are available?",
+    a: "Extra nights, resident-chef catering, bar service, wedding planning and coordination, event rentals, setup and cleanup, rehearsal dinners, welcome gatherings, farewell brunches, and shuttle coordination.",
+  },
 ];
 
 export default function PackagesPage() {
-  // Auto-expand Signature (index 3) by default
-  const [expandedPkg, setExpandedPkg] = useState<number | null>(3);
+  // Auto-expand The ANEW Signature Weekend (index 2) by default
+  const [expandedPkg, setExpandedPkg] = useState<number | null>(2);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
@@ -100,7 +106,7 @@ export default function PackagesPage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Invest in Unforgettable</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Weddings &amp; Celebrations</p>
             <h1 className="font-heading text-5xl sm:text-6xl font-normal">Packages</h1>
           </AnimatedSection>
         </div>
@@ -112,7 +118,9 @@ export default function PackagesPage() {
           <AnimatedSection className="text-center mb-16">
             <div className="divider mx-auto mb-8" />
             <p className="text-muted text-base leading-relaxed max-w-lg mx-auto">
-              Every package can be tailored to your vision. Choose a starting point, then make it yours.
+              A private estate experience in Kenmore, Washington. Celebrate in one beautiful place with flexible
+              indoor and outdoor spaces, overnight accommodations, and the option to build a wedding weekend
+              around your vision.
             </p>
           </AnimatedSection>
 
@@ -149,13 +157,14 @@ export default function PackagesPage() {
                       >
                         <div className="pb-8">
                           <div className="flex flex-wrap gap-4 text-[11px] tracking-[0.2em] uppercase text-muted mb-6">
-                            <span>{pkg.capacity}</span>
+                            <span>{pkg.tagline}</span>
                             <span>&middot;</span>
                             <span>{pkg.duration}</span>
-                            <span>&middot;</span>
-                            <span>Best for: {pkg.best}</span>
                           </div>
-                          <p className="text-muted text-sm leading-relaxed mb-6">{pkg.details}</p>
+                          <p className="text-muted text-sm leading-relaxed mb-3">{pkg.details}</p>
+                          <p className="text-muted text-sm leading-relaxed mb-6">
+                            <span className="text-dark">Best for:</span> {pkg.best}.
+                          </p>
                           <div className="grid sm:grid-cols-2 gap-2 mb-6">
                             {pkg.includes.map((item) => (
                               <div key={item} className="flex items-start gap-2">
@@ -165,10 +174,10 @@ export default function PackagesPage() {
                             ))}
                           </div>
                           <Link
-                            href={pkg.price === "Let's Talk" ? "/inquire" : "/booking"}
+                            href="/inquire"
                             className="text-[11px] tracking-[0.3em] uppercase text-dark border-b border-dark pb-1 hover:text-accent hover:border-accent transition-colors"
                           >
-                            {pkg.price === "Let's Talk" ? "Inquire" : "Select Package"}
+                            Inquire About This Package
                           </Link>
                         </div>
                       </motion.div>
@@ -185,15 +194,15 @@ export default function PackagesPage() {
       <section className="py-28 sm:py-36 bg-cream px-6">
         <div className="max-w-3xl mx-auto">
           <AnimatedSection className="text-center mb-14">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-accent mb-4">Enhance</p>
-            <h2 className="font-heading text-3xl sm:text-4xl text-dark font-normal">Add-ons</h2>
+            <p className="text-[11px] tracking-[0.4em] uppercase text-accent mb-4">Customize Your Experience</p>
+            <h2 className="font-heading text-3xl sm:text-4xl text-dark font-normal">Available Enhancements</h2>
           </AnimatedSection>
           <div className="space-y-0">
-            {addOns.map((addon, i) => (
-              <AnimatedSection key={addon.name} delay={i * 0.03}>
-                <div className="flex items-center justify-between py-4 border-b border-border">
-                  <span className="text-[15px] text-dark">{addon.name}</span>
-                  <span className="text-[15px] text-muted font-heading">{addon.price}</span>
+            {enhancements.map((enhancement, i) => (
+              <AnimatedSection key={enhancement} delay={i * 0.03}>
+                <div className="flex items-start gap-3 py-4 border-b border-border">
+                  <Check className="w-3.5 h-3.5 text-accent mt-1 shrink-0" />
+                  <span className="text-[15px] text-dark">{enhancement}</span>
                 </div>
               </AnimatedSection>
             ))}
@@ -243,8 +252,8 @@ export default function PackagesPage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <h2 className="font-heading text-4xl sm:text-5xl font-normal mb-6">Ready to Book?</h2>
-            <Link href="/booking" className="text-[11px] tracking-[0.3em] uppercase border border-white text-white px-8 py-3.5 hover:bg-white hover:text-dark transition-all duration-500">
+            <h2 className="font-heading text-4xl sm:text-5xl font-normal mb-6">Reserve Your Date</h2>
+            <Link href="/inquire" className="text-[11px] tracking-[0.3em] uppercase border border-white text-white px-8 py-3.5 hover:bg-white hover:text-dark transition-all duration-500">
               Start Your Inquiry
             </Link>
           </AnimatedSection>
