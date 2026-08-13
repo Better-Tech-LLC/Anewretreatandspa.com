@@ -82,7 +82,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.3 }}
-            className="text-[10px] sm:text-[12px] tracking-[0.3em] sm:tracking-[0.6em] uppercase mb-8 text-white/60"
+            className="text-[10px] sm:text-[12px] tracking-[0.3em] sm:tracking-[0.6em] uppercase mb-8 text-white/80"
           >
             Pacific Northwest Retreat &amp; Spa
           </motion.p>
@@ -126,13 +126,13 @@ export default function HomePage() {
             </Link>
             <Link
               href="/venue"
-              className="text-[11px] tracking-[0.3em] uppercase text-white/70 hover:text-white transition-colors duration-300"
+              className="text-[11px] tracking-[0.3em] uppercase text-white/85 hover:text-white transition-colors duration-300"
             >
               Explore the Estate
             </Link>
             <Link
               href="/#contact"
-              className="text-[11px] tracking-[0.3em] uppercase text-white/70 hover:text-white transition-colors duration-300"
+              className="text-[11px] tracking-[0.3em] uppercase text-white/85 hover:text-white transition-colors duration-300"
             >
               Schedule a Tour
             </Link>
@@ -221,7 +221,7 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 flex items-center justify-center">
           <AnimatedSection>
             <p className="text-white font-heading text-3xl sm:text-4xl md:text-5xl text-center font-normal leading-tight px-6 max-w-3xl">
@@ -319,11 +319,11 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 flex items-center justify-center">
           <AnimatedSection>
             <div className="text-center text-white px-6">
-              <p className="text-[11px] tracking-[0.4em] uppercase mb-4 text-white/70">A Taste of ANEW</p>
+              <p className="text-[11px] tracking-[0.4em] uppercase mb-4 text-white/85">A Taste of ANEW</p>
               <p className="font-heading text-3xl sm:text-4xl md:text-5xl font-normal">
                 Farm-to-Table Dining
               </p>
@@ -512,14 +512,14 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <AnimatedSection>
             <HandDrawnDivider variant="flourish" color="rgba(255,255,255,0.35)" className="mb-8" />
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 font-normal leading-tight">
               Begin Your<br />ANEW Story
             </h2>
-            <p className="text-white/70 text-base mb-10 max-w-md mx-auto">
+            <p className="text-white/85 text-base mb-10 max-w-md mx-auto">
               Let us help you craft an event as extraordinary as the setting.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -531,7 +531,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/#contact"
-                className="text-[11px] tracking-[0.3em] uppercase text-white/60 hover:text-white transition-colors duration-300"
+                className="text-[11px] tracking-[0.3em] uppercase text-white/80 hover:text-white transition-colors duration-300"
               >
                 Schedule a Tour
               </Link>

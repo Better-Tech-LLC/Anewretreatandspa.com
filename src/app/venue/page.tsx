@@ -46,12 +46,12 @@ export default function VenuePage() {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[450px] flex items-center justify-center">
         <Image src="/images/driveway-approach.webp" alt="ANEW" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Elevated &amp; Exclusive</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/85">Elevated &amp; Exclusive</p>
             <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-normal">The Estate</h1>
-            <p className="text-white/60 mt-4 max-w-lg mx-auto text-sm">A natural oasis amidst the city — refined craftsmanship, rustic charm, and exceptional experiences.</p>
+            <p className="text-white/80 mt-4 max-w-lg mx-auto text-sm">A natural oasis amidst the city — refined craftsmanship, rustic charm, and exceptional experiences.</p>
           </AnimatedSection>
         </div>
       </section>
@@ -286,11 +286,11 @@ export default function VenuePage() {
       {/* CTA */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <Image src="/images/garden-flowers.webp" alt="Garden" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
             <h2 className="font-heading text-4xl sm:text-5xl font-normal mb-6">Experience It For Yourself</h2>
-            <p className="text-white/70 text-base mb-8 max-w-md mx-auto">Schedule a private tour and discover this exceptional natural oasis in person.</p>
+            <p className="text-white/85 text-base mb-8 max-w-md mx-auto">Schedule a private tour and discover this exceptional natural oasis in person.</p>
             <Link href="/booking" className="text-[11px] tracking-[0.3em] uppercase border border-white text-white px-8 py-3.5 hover:bg-white hover:text-dark transition-all duration-500">
               Book a Tour
             </Link>
