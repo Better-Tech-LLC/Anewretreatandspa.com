@@ -103,6 +103,16 @@ export default function Navbar() {
             )}
 
             <div className="flex items-center gap-2 xl:gap-3">
+              <Link
+                href="/booking"
+                className={`text-[11px] tracking-[0.25em] uppercase font-light border px-4 xl:px-5 py-2.5 transition-all duration-300 ${
+                  useDarkText
+                    ? "border-dark text-dark hover:bg-dark hover:text-white"
+                    : "border-white text-white hover:bg-white hover:text-dark"
+                }`}
+              >
+                Book Now
+              </Link>
               <a
                 href="tel:+12064711243"
                 aria-label="Call ANEW at (206) 471-1243"
@@ -115,16 +125,6 @@ export default function Navbar() {
                 <Phone className="w-3.5 h-3.5" />
                 <span className="hidden xl:inline">Call</span>
               </a>
-              <Link
-                href="/booking"
-                className={`text-[11px] tracking-[0.25em] uppercase font-light border px-4 xl:px-5 py-2.5 transition-all duration-300 ${
-                  useDarkText
-                    ? "border-dark text-dark hover:bg-dark hover:text-white"
-                    : "border-white text-white hover:bg-white hover:text-dark"
-                }`}
-              >
-                Book Now
-              </Link>
             </div>
           </div>
 
@@ -164,13 +164,13 @@ export default function Navbar() {
             ) : (
               <button onClick={() => { setMobileOpen(false); setAuthOpen(true); }} className="text-white text-[13px] tracking-[0.3em] uppercase font-light hover:text-accent transition-colors">Sign In</button>
             )}
+            <Link href="/booking" onClick={() => setMobileOpen(false)} className="text-[13px] tracking-[0.3em] uppercase font-light border border-white text-white px-8 py-3 hover:bg-white hover:text-dark transition-all">
+              Book Now
+            </Link>
             <a href="tel:+12064711243" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-[13px] tracking-[0.3em] uppercase font-light border border-white text-white px-8 py-3 hover:bg-white hover:text-dark transition-all">
               <Phone className="w-4 h-4" />
               Call Us
             </a>
-            <Link href="/booking" onClick={() => setMobileOpen(false)} className="text-[13px] tracking-[0.3em] uppercase font-light border border-white text-white px-8 py-3 hover:bg-white hover:text-dark transition-all">
-              Book Now
-            </Link>
           </motion.div>
         )}
       </AnimatePresence>
