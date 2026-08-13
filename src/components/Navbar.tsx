@@ -13,6 +13,7 @@ const navLinks = [
   { label: "About", href: "/venue" },
   { label: "Experiences", href: "/experiences" },
   { label: "Packages", href: "/packages" },
+  { label: "Boutique", href: "/boutique" },
   { label: "Gallery", href: "/gallery" },
   { label: "Inquire", href: "/inquire" },
 ];
@@ -25,7 +26,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Pages with dark hero images where white nav text works
-  const darkHeroPages = ["/", "/venue", "/experiences", "/gallery", "/packages", "/booking"];
+  const darkHeroPages = ["/", "/venue", "/experiences", "/gallery", "/packages", "/boutique", "/booking"];
   const hasDarkHero = darkHeroPages.includes(pathname);
   const useDarkText = scrolled || !hasDarkHero;
 
