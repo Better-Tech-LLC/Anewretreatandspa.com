@@ -98,7 +98,7 @@ export default function Footer() {
                 { label: "Wellness Retreats", href: "/experiences" },
                 { label: "Corporate Retreats", href: "/experiences" },
                 { label: "Private Dining", href: "/experiences" },
-                { label: "Packages", href: "/packages" },
+                { label: "Wedding Packages", href: "/packages" },
               ].map((item) => (
                 <Link
                   key={item.label}

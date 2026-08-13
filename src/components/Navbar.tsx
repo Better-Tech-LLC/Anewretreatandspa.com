@@ -12,7 +12,7 @@ import AuthModal from "@/components/AuthModal";
 const leftNavLinks = [
   { label: "About", href: "/venue" },
   { label: "Experiences", href: "/experiences" },
-  { label: "Packages", href: "/packages" },
+  { label: "Weddings", href: "/packages" },
   { label: "Boutique", href: "/boutique" },
 ];
 
