@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, Phone } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
 import { logOut } from "@/lib/auth";
 import AuthModal from "@/components/AuthModal";
@@ -71,7 +71,7 @@ export default function Navbar() {
           {/* Center logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
             <span
-              className={`font-heading text-[1.7rem] sm:text-[2rem] tracking-[0.35em] transition-colors duration-500 font-light ${
+              className={`font-heading text-[1.7rem] xl:text-[2rem] tracking-[0.35em] transition-colors duration-500 font-light ${
                 useDarkText ? "text-dark" : "text-white"
               }`}
             >
@@ -80,7 +80,7 @@ export default function Navbar() {
           </Link>
 
           {/* Right nav (desktop) */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
+          <div className="hidden lg:flex items-center gap-3.5 xl:gap-8">
             {rightNavLinks.map((link) => (
               <Link key={link.label} href={link.href} className={linkClass}>
                 {link.label}
@@ -93,34 +93,39 @@ export default function Navbar() {
                   <User className="w-4 h-4 inline mr-1" />
                   Account
                 </Link>
-                <Link
-                  href="/booking"
-                  className={`text-[11px] tracking-[0.25em] uppercase font-light border px-5 py-2.5 transition-all duration-300 ${
-                    useDarkText
-                      ? "border-dark text-dark hover:bg-dark hover:text-white"
-                      : "border-white text-white hover:bg-white hover:text-dark"
-                  }`}
-                >
-                  Book Now
-                </Link>
               </div>
             ) : (
               <div className="flex items-center gap-6">
                 <button onClick={() => setAuthOpen(true)} className={linkClass}>
                   Sign In
                 </button>
-                <Link
-                  href="/booking"
-                  className={`text-[11px] tracking-[0.25em] uppercase font-light border px-5 py-2.5 transition-all duration-300 ${
-                    useDarkText
-                      ? "border-dark text-dark hover:bg-dark hover:text-white"
-                      : "border-white text-white hover:bg-white hover:text-dark"
-                  }`}
-                >
-                  Book Now
-                </Link>
               </div>
             )}
+
+            <div className="flex items-center gap-2 xl:gap-3">
+              <a
+                href="tel:+12064711243"
+                aria-label="Call ANEW at (206) 471-1243"
+                className={`flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase font-light border px-3.5 xl:px-5 py-2.5 transition-all duration-300 ${
+                  useDarkText
+                    ? "border-dark text-dark hover:bg-dark hover:text-white"
+                    : "border-white text-white hover:bg-white hover:text-dark"
+                }`}
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">Call</span>
+              </a>
+              <Link
+                href="/booking"
+                className={`text-[11px] tracking-[0.25em] uppercase font-light border px-4 xl:px-5 py-2.5 transition-all duration-300 ${
+                  useDarkText
+                    ? "border-dark text-dark hover:bg-dark hover:text-white"
+                    : "border-white text-white hover:bg-white hover:text-dark"
+                }`}
+              >
+                Book Now
+              </Link>
+            </div>
           </div>
 
           {/* Mobile toggle */}
@@ -159,6 +164,10 @@ export default function Navbar() {
             ) : (
               <button onClick={() => { setMobileOpen(false); setAuthOpen(true); }} className="text-white text-[13px] tracking-[0.3em] uppercase font-light hover:text-accent transition-colors">Sign In</button>
             )}
+            <a href="tel:+12064711243" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-[13px] tracking-[0.3em] uppercase font-light border border-white text-white px-8 py-3 hover:bg-white hover:text-dark transition-all">
+              <Phone className="w-4 h-4" />
+              Call Us
+            </a>
             <Link href="/booking" onClick={() => setMobileOpen(false)} className="text-[13px] tracking-[0.3em] uppercase font-light border border-white text-white px-8 py-3 hover:bg-white hover:text-dark transition-all">
               Book Now
             </Link>
