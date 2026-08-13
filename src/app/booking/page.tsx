@@ -12,7 +12,8 @@ import { useAuth } from "@/components/AuthProvider";
 import AuthModal from "@/components/AuthModal";
 import StripePayment from "@/components/StripePayment";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
-import { BLOCK_OPTIONS, EVENT_TYPES, formatTime, type DurationBlock } from "@/lib/booking";
+import { BLOCK_OPTIONS, EVENT_TYPES, formatTime, blockPrice, BASE_NIGHTLY, type DurationBlock } from "@/lib/booking";
+import { getAvailability } from "@/lib/hospitable";
 
 const STEPS = ["Date & Time", "Your Details", "Payment"];
 
@@ -84,6 +85,49 @@ function BookingPageInner() {
     });
   };
 
+  // Live nightly rate from Hospitable for the chosen date. The whole quote
+  // (all block prices + the total) scales from this, so pricing tracks
+  // Hospitable's dynamic rates instead of a fixed table.
+  const [nightlyPrice, setNightlyPrice] = useState<number | null>(null);
+  const [priceNote, setPriceNote] = useState<string | null>(null);
+  // Set only if the server re-prices at checkout (Hospitable rate moved
+  // between page load and payment); overrides the displayed total.
+  const [repricedCharge, setRepricedCharge] = useState<number | null>(null);
+
+  useEffect(() => {
+    const d = form.selectedDate;
+    if (!d) {
+      setNightlyPrice(null);
+      setPriceNote(null);
+      return;
+    }
+    let cancelled = false;
+    const key = toLocalDateString(d);
+    setPriceNote(null);
+    getAvailability(d.getFullYear(), d.getMonth())
+      .then((days) => {
+        if (cancelled) return;
+        const match = days.find((x) => x.date === key);
+        setNightlyPrice(match?.price ?? null);
+        if (!match || match.price == null) {
+          setPriceNote("Live rate unavailable for this date — showing our standard rate.");
+        }
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setNightlyPrice(null);
+        setPriceNote("Live pricing is temporarily unavailable — showing our standard rate.");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [form.selectedDate]);
+
+  // A new date or block invalidates any server reprice from a prior attempt.
+  useEffect(() => {
+    setRepricedCharge(null);
+  }, [form.selectedDate, form.blockHours]);
+
   const validateStep = (): boolean => {
     const errs: Record<string, string> = {};
     if (step === 0) {
@@ -117,7 +161,12 @@ function BookingPageInner() {
   const prev = () => setStep((s) => Math.max(s - 1, 0));
 
   const selectedBlock = BLOCK_OPTIONS.find((b) => b.hours === form.blockHours) || null;
-  const chargeAmount = selectedBlock?.price || 0;
+  // Nightly rate for the picked date (falls back to the standard rate before a
+  // date is chosen or if Hospitable pricing can't load). Every block price and
+  // the total derive from it.
+  const nightly = nightlyPrice ?? BASE_NIGHTLY;
+  const computedCharge = selectedBlock ? blockPrice(nightly, selectedBlock.hours) : 0;
+  const chargeAmount = repricedCharge ?? computedCharge;
 
   const handlePaymentSuccess = async (_paymentIntentId: string) => {
     // No client-side Firestore write. The Stripe webhook is the single
@@ -168,10 +217,10 @@ function BookingPageInner() {
     <>
       <section className="relative h-[45vh] min-h-[300px] flex items-center justify-center">
         <Image src="/images/forest-approach.webp" alt="Booking" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Reserve Your Date</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/85">Reserve Your Date</p>
             <h1 className="font-heading text-5xl sm:text-6xl font-normal">Book the Estate</h1>
           </AnimatedSection>
         </div>
@@ -235,7 +284,7 @@ function BookingPageInner() {
                             >
                               <div className="font-heading text-lg">{b.label}</div>
                               <div className="text-[10px] tracking-[0.1em] uppercase mt-1">{b.desc}</div>
-                              <div className="text-sm text-dark mt-2">${b.price.toLocaleString()}</div>
+                              <div className="text-sm text-dark mt-2">${blockPrice(nightly, b.hours).toLocaleString()}</div>
                             </button>
                           ))}
                         </div>
@@ -376,6 +425,7 @@ function BookingPageInner() {
                           amount={chargeAmount}
                           onSuccess={handlePaymentSuccess}
                           onError={(msg) => setPaymentError(msg)}
+                          onReprice={(dollars) => { setRepricedCharge(dollars); setPaymentError(null); }}
                           metadata={{
                             chargeAmount: String(chargeAmount),
                             eventType: form.eventType,
@@ -442,6 +492,10 @@ function BookingPageInner() {
                   <span className="text-sm text-dark">Total Due</span>
                   <span className="font-heading text-2xl text-dark">${chargeAmount.toLocaleString()}</span>
                 </div>
+                {form.selectedDate && form.blockHours !== 24 && (
+                  <p className="text-[10px] text-muted mt-2">Based on ${nightly.toLocaleString()}/night for this date.</p>
+                )}
+                {priceNote && <p className="text-[10px] text-amber-700 mt-2 italic">{priceNote}</p>}
                 <p className="text-[10px] text-muted mt-4 italic">Charged in full at checkout. All bookings are non-refundable. Minimum 3 days advance notice required.</p>
               </div>
             </div>

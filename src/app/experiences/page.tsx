@@ -105,12 +105,12 @@ export default function ExperiencesPage() {
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
         <Image src="/images/deer-garden.webp" alt="Experiences" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Curated & Unforgettable</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/85">Curated & Unforgettable</p>
             <h1 className="font-heading text-5xl sm:text-6xl font-normal">Experiences</h1>
-            <p className="text-white/60 mt-4 max-w-lg mx-auto text-sm">
+            <p className="text-white/80 mt-4 max-w-lg mx-auto text-sm">
               More than an event venue — ANEW offers immersive experiences designed to restore, inspire, and connect.
             </p>
           </AnimatedSection>
@@ -187,11 +187,11 @@ export default function ExperiencesPage() {
       {/* CTA */}
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center">
         <Image src="/images/tall-cedars.webp" alt="Forest" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
             <h2 className="font-heading text-4xl sm:text-5xl font-normal mb-4">Begin Anew</h2>
-            <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">Where strong foundations begin.</p>
+            <p className="text-white/85 text-sm mb-8 max-w-md mx-auto">Where strong foundations begin.</p>
             <Link href="/booking" className="text-[11px] tracking-[0.3em] uppercase border border-white text-white px-8 py-3.5 hover:bg-white hover:text-dark transition-all duration-500">
               Plan Your Experience
             </Link>

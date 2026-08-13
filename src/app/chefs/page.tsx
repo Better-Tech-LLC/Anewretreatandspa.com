@@ -55,12 +55,12 @@ export default function ChefsPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center">
         <Image src="/images/catering-spread.webp" alt="Chefs" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Farm to Table</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/85">Farm to Table</p>
             <h1 className="font-heading text-5xl sm:text-6xl font-normal">Our Chefs</h1>
-            <p className="text-white/60 mt-4 max-w-md mx-auto text-sm">Book a private chef for your event and experience exceptional cuisine crafted on-site.</p>
+            <p className="text-white/80 mt-4 max-w-md mx-auto text-sm">Book a private chef for your event and experience exceptional cuisine crafted on-site.</p>
           </AnimatedSection>
         </div>
       </section>

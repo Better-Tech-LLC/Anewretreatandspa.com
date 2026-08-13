@@ -66,12 +66,12 @@ export default function LocalPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center">
         <Image src="/images/forest-view.webp" alt="Local area" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
-            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/70">Explore the Area</p>
+            <p className="text-[11px] tracking-[0.5em] uppercase mb-5 text-white/85">Explore the Area</p>
             <h1 className="font-heading text-5xl sm:text-6xl font-normal">Things To Do</h1>
-            <p className="text-white/60 mt-4 max-w-lg mx-auto text-sm">The Pacific Northwest at your doorstep — from mountain trails to wine country, all within reach of ANEW.</p>
+            <p className="text-white/80 mt-4 max-w-lg mx-auto text-sm">The Pacific Northwest at your doorstep — from mountain trails to wine country, all within reach of ANEW.</p>
           </AnimatedSection>
         </div>
       </section>
@@ -129,11 +129,11 @@ export default function LocalPage() {
       {/* CTA */}
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center">
         <Image src="/images/creek.webp" alt="Nature" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center text-white px-6">
           <AnimatedSection>
             <h2 className="font-heading text-4xl sm:text-5xl font-normal mb-4">Plan Your Retreat</h2>
-            <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">Combine the beauty of the estate with everything the Pacific Northwest has to offer.</p>
+            <p className="text-white/85 text-sm mb-8 max-w-md mx-auto">Combine the beauty of the estate with everything the Pacific Northwest has to offer.</p>
             <a href="/booking" className="text-[11px] tracking-[0.3em] uppercase border border-white text-white px-8 py-3.5 hover:bg-white hover:text-dark transition-all duration-500">
               Book Your Stay
             </a>
