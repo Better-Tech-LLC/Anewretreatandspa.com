@@ -101,9 +101,17 @@ export default function InquirePage() {
         <div className="max-w-2xl mx-auto">
           <AnimatedSection>
             <HandDrawnDivider variant="botanical" className="mb-8" />
-            <p className="text-muted text-base leading-relaxed text-center max-w-xl mx-auto mb-12">
+            <p className="text-muted text-base leading-relaxed text-center max-w-xl mx-auto mb-4">
               Skip the instant-book flow and reach out to our host directly. We&apos;ll review your dates,
               answer any questions, and confirm availability before any payment is taken.
+            </p>
+            <p className="text-center mb-12">
+              <a
+                href="tel:+12064711243"
+                className="text-[11px] tracking-[0.3em] uppercase text-dark border-b border-dark pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Call (206) 471-1243
+              </a>
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
