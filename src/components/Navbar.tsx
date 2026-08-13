@@ -9,14 +9,19 @@ import { useAuth } from "@/components/AuthProvider";
 import { logOut } from "@/lib/auth";
 import AuthModal from "@/components/AuthModal";
 
-const navLinks = [
+const leftNavLinks = [
   { label: "About", href: "/venue" },
   { label: "Experiences", href: "/experiences" },
   { label: "Packages", href: "/packages" },
   { label: "Boutique", href: "/boutique" },
+];
+
+const rightNavLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "Inquire", href: "/inquire" },
 ];
+
+const navLinks = [...leftNavLinks, ...rightNavLinks];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,8 +60,8 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between relative">
           {/* Left nav (desktop) */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((link) => (
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
+            {leftNavLinks.map((link) => (
               <Link key={link.label} href={link.href} className={linkClass}>
                 {link.label}
               </Link>
@@ -75,8 +80,8 @@ export default function Navbar() {
           </Link>
 
           {/* Right nav (desktop) */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.slice(Math.ceil(navLinks.length / 2)).map((link) => (
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
+            {rightNavLinks.map((link) => (
               <Link key={link.label} href={link.href} className={linkClass}>
                 {link.label}
               </Link>
